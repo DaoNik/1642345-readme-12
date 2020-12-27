@@ -39,8 +39,8 @@ $user_name = ''; // укажите здесь ваше имя
                 </button>
             </div>
         </form>
-        <div class="header__nav-wrapper">
-            <?php if ($is_auth === 1) ?>
+        <div class="header__nav-wrapper">        
+            <?php if ($is_auth === 1) : ?>
             <nav class="header__nav">
                 <ul class="header__my-nav">
                     <li class="header__my-page header__my-page--popular">
