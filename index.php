@@ -301,7 +301,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                 <!--содержимое для поста-текста-->
                 <p><!--здесь текст--></p>
             </div>
-            <?php foreach ($array_posts as $post) {?>
+      
 
 
             <article class="popular__post post">
@@ -347,7 +347,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                     </div>
                 </footer>
             </article>
-           <?php }?>
+        
         </div>
     </div>
 </section>
