@@ -203,13 +203,49 @@ $user_name = 'Никита'; // укажите здесь ваше имя
         </div>
         <div class="popular__posts">
             <div class="visually-hidden" id="donor">
+                <?php $array_posts=[
+                    ['h2' => 'Цитата',
+                     'type' => 'post-quote',
+                     'main' => '<blockquote>
+                                    <p>
+                                    Мы в жизни любим только раз, а после ищем лишь похожих
+                                    </p>
+                                    <cite>Неизвестный Автор</cite>
+                                </blockquote>'
+                     'username' => 'Лариса',
+                     'avatar' => 'userpic-larisa-small.jpg',
+                ],
+                [
+                    'h2' => 'Игра престолов',
+                    'type' => 'post-text',
+                    'text' => 'Не могу дождаться начала финального сезона своего любимого сериала!',
+                    'username' => 'Владик',
+                    'avatar' => 'userpic.jpg'
+                ],
+                [
+                    'h2' => 'Наконец, обработал фотки!',
+                    'type' => 'post-photo',
+                    'src' => 'rock-medium.jpg',
+                    'username' => 'Виктор',
+                    'avatar' => 'userpic-mark.jpg'
+                ],
+                [
+                    'h2' => 'Моя мечта',
+                    'type' => 'post-photo',
+                    'src' => 'coast-medium.jpg',
+                    'username' => 'Лариса',
+                    'avatar' => 'userpic.jpg'
+                ],
+                [
+                    'h2' => 'Лучшие курсы',
+                    'type' => 'post-link',
+                    'href' => 'www.htmlacademy.ru',
+                    'username' => 'Владик',
+                    'avatar' => 'userpic.jpg'
+                ]
+                ]; ?>
                 <!--содержимое для поста-цитаты-->
-                <blockquote>
-                    <p>
-                        <!--здесь текст-->
-                    </p>
-                    <cite>Неизвестный Автор</cite>
-                </blockquote>
+                
 
                 <!--содержимое для поста-ссылки-->
                 <div class="post-link__wrapper">
@@ -248,23 +284,25 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                 <!--содержимое для поста-текста-->
                 <p><!--здесь текст--></p>
             </div>
+            <?php foreach ($array_posts as $post) {?>
+
 
             <article class="popular__post post">
                 <header class="post__header">
-                    <h2><!--здесь заголовок--></h2>
+                    <h2><?=$post['h2'];?></h2>
                 </header>
                 <div class="post__main">
-                    <!--здесь содержимое карточки-->
+                    <?=$post['main'];?>
                 </div>
                 <footer class="post__footer">
                     <div class="post__author">
                         <a class="post__author-link" href="#" title="Автор">
                             <div class="post__avatar-wrapper">
                                 <!--укажите путь к файлу аватара-->
-                                <img class="post__author-avatar" src="img/" alt="Аватар пользователя">
+                                <img class="post__author-avatar" src="img/<?=$post['avatar'];?>" alt="Аватар пользователя">
                             </div>
                             <div class="post__info">
-                                <b class="post__author-name"><!--здесь имя пользоателя--></b>
+                                <b class="post__author-name"><?=$post['username'];?></b>
                                 <time class="post__time" datetime="">дата</time>
                             </div>
                         </a>
@@ -292,6 +330,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                     </div>
                 </footer>
             </article>
+           <?php }?>
         </div>
     </div>
 </section>
