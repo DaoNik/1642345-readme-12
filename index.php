@@ -2,6 +2,7 @@
 $is_auth = rand(0, 1);
 
 $user_name = 'Никита'; // укажите здесь ваше имя
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -39,8 +40,9 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                 </button>
             </div>
         </form>
-        <div class="header__nav-wrapper">        
-            <?php if ($is_auth === 1) : ?>
+        <div class="header__nav-wrapper">
+            <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
+            <?php if ($is_auth === 1) :?>
             <nav class="header__nav">
                 <ul class="header__my-nav">
                     <li class="header__my-page header__my-page--popular">
@@ -59,6 +61,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                         </a>
                     </li>
                 </ul>
+                
                 <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
                 <ul class="header__user-nav">
                     <li class="header__profile">
@@ -110,7 +113,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                     </li>
                 </ul>
             </nav>
-            <?php endif; ?>
+            <?php endif;?>
         </div>
     </div>
 </header>
@@ -203,26 +206,30 @@ $user_name = 'Никита'; // укажите здесь ваше имя
         </div>
         <div class="popular__posts">
         <?php $array_posts=[
-                    ['h2' => 'Цитата',
+                    ['h2' => '<a href="#">Цитата</a>',
                      'type' => 'post-quote',
                      'main' => '<blockquote>
                                     <p>
                                     Мы в жизни любим только раз, а после ищем лишь похожих
                                     </p>
-                                    <cite>Неизвестный Автор</cite>
+                                    <cite>Сергей Есенин</cite>
                                 </blockquote>',
                      'username' => 'Лариса',
-                     'avatar' => 'userpic-larisa-small.jpg',
+                     'avatar' => 'userpic-larisa-small.jpg'
                 ],
                 [
-                    'h2' => 'Игра престолов',
+                    'h2' => '<a href="#">Игра престолов</a>',
                     'type' => 'post-text',
-                    'main' => '<p>Не могу дождаться начала финального сезона своего любимого сериала!</p>',
+                    'main' => '
+                    <p>Не могу дождаться начала финального сезона своего любимого сериала!</p>
+                    <div class="post-text__more-link-wrapper">
+                        <a class="post-text__more-link" href="#">Читать далее</a>
+                    </div>',
                     'username' => 'Владик',
                     'avatar' => 'userpic.jpg'
                 ],
                 [
-                    'h2' => 'Наконец, обработал фотки!',
+                    'h2' => '<a href="#">Наконец, обработал фотки!</a>',
                     'type' => 'post-photo',
                     'main' => '<div class="post-photo__image-wrapper">
                     <img src="img/rock-medium.jpg" alt="Фото от пользователя" width="360" height="240">
@@ -231,16 +238,16 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                     'avatar' => 'userpic-mark.jpg'
                 ],
                 [
-                    'h2' => 'Моя мечта',
+                    'h2' => '<a href="#">Моя мечта</a>',
                     'type' => 'post-photo',
                     'main' => '<div class="post-photo__image-wrapper">
                     <img src="img/coast-medium.jpg" alt="Фото от пользователя" width="360" height="240">
                 </div>',
                     'username' => 'Лариса',
-                    'avatar' => 'userpic.jpg'
+                    'avatar' => 'userpic-larisa-small.jpg'
                 ],
                 [
-                    'h2' => 'Лучшие курсы',
+                    'h2' => '<a href="#">Лучшие курсы</a>',
                     'type' => 'post-link',
                     'main' => '
                     <div class="post-link__wrapper">
@@ -253,7 +260,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
                                     <h3>Лучшие курсы</h3>
                                 </div>
                             </div>
-                            <span><a href="http://www.htmlacademy.ru"></a></span>
+                            <span>www.htmlacademy.ru</span>
                         </a>
                     </div>',
                     'username' => 'Владик',
@@ -263,7 +270,7 @@ $user_name = 'Никита'; // укажите здесь ваше имя
            
 
         <?php foreach ($array_posts as $post) : ?>
-            <article class="popular__post post">
+            <article class="popular__post post <?=$post['type']?>">
                 <header class="post__header">
                     <h2><?=$post['h2'];?></h2>
                 </header>
